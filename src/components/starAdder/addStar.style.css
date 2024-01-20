@@ -1,0 +1,45 @@
+.container {
+  width: 50%;
+  margin: auto;
+  font-size: 2rem;
+}
+
+.stars-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 1rem;
+  width: 100%;
+  min-height: 200px;
+  border: 3px solid orange;
+  border-radius: 3rem;
+  margin: 1rem;
+}
+
+#add-star-btn {
+  padding: 10px 20px;
+  margin: 1rem;
+  border-radius: 10px;
+  border: 3px solid orange;
+  color: orange;
+  font-size: 1.5rem;
+  -webkit-transition: all 500ms ease;
+}
+
+#add-star-btn:hover {
+  background-color: rgb(15, 87, 116);
+  border: none;
+  color: white;
+}
+
+#star:hover {
+  font-size: 2.5rem;
+  -webkit-transition: all 400ms ease;
+}
+
+#total-star {
+  display: inline;
+  text-align: end;
+  padding: 5px;
+  color: orange;
+}
