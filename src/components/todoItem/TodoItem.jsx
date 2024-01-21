@@ -1,10 +1,10 @@
 import React from "react";
 import "./todoItem.style.css";
 
-const TodoItem = ({ deleteTodo, id, text, isCompleted, completeTodo }) => {
+const TodoItem = ({ deleteTodo, todoId, text, isCompleted, completeTodo }) => {
   const onDeleteClick = () => {
-    deleteTodo(id);
-    console.log(id);
+    deleteTodo(todoId);
+    console.log(todoId);
     console.log("is completed", isCompleted);
   };
 
@@ -14,7 +14,7 @@ const TodoItem = ({ deleteTodo, id, text, isCompleted, completeTodo }) => {
         type="checkbox"
         className="todo-checkbox"
         checked={isCompleted}
-        onChange={() => completeTodo(id)}
+        onChange={() => completeTodo(todoId)}
       />
       <p
         style={{ textDecoration: `${isCompleted ? "line-through" : null}` }}
