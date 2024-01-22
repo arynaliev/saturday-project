@@ -17,7 +17,7 @@ const TodoItem = ({ deleteTodo, todoId, text, isCompleted, completeTodo }) => {
         onChange={() => completeTodo(todoId)}
       />
       <p
-        style={{ textDecoration: `${isCompleted ? "line-through" : null}` }}
+        style={{ textDecoration: `${isCompleted ? "line-through" : "none"}` }}
         className="todo-text"
       >
         {text}
