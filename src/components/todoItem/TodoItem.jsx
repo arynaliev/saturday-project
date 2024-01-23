@@ -9,22 +9,24 @@ const TodoItem = ({ deleteTodo, todoId, text, isCompleted, completeTodo }) => {
   };
 
   return (
-    <div className="todo-container">
-      <input
-        type="checkbox"
-        className="todo-checkbox"
-        checked={isCompleted}
-        onChange={() => completeTodo(todoId)}
-      />
-      <p
-        style={{ textDecoration: `${isCompleted ? "line-through" : "none"}` }}
-        className="todo-text"
-      >
-        {text}
-      </p>
-      <button id="x-btn" onClick={onDeleteClick}>
-        X
-      </button>
+    <div className="todoItem-container">
+      <div className="todoList">
+        <input
+          type="checkbox"
+          className="todo-checkbox"
+          checked={isCompleted}
+          onChange={() => completeTodo(todoId)}
+        />
+        <p
+          style={{ textDecoration: `${isCompleted ? "line-through" : "none"}` }}
+          className="todo-text"
+        >
+          {text}
+        </p>
+        <button id="x-btn" onClick={onDeleteClick}>
+          X
+        </button>
+      </div>
     </div>
   );
 };

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./todoApp.style.css";
 import TodoItem from "../todoItem/TodoItem";
+import Popup from "../popup/Popup";
 
 const TodoApp = () => {
   const [todo, setTodo] = useState({ text: "", id: "", isCompleted: false });
   const [todoList, setTodoList] = useState([]);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const onInputChange = (e) => {
     setTodo({ ...todo, text: e.target.value, id: uuidv4() });
@@ -18,7 +20,7 @@ const TodoApp = () => {
   };
 
   const onDeleteHandler = (todoId) => {
-    setTodoList([...todoList.filter((el, id) => el.id !== todoId)]);
+    setTodoList([...todoList.filter((el) => el.id !== todoId)]);
   };
 
   const completeTodo = (id) => {
@@ -29,16 +31,21 @@ const TodoApp = () => {
     ]);
   };
 
+  const clearAllHandler = () => {
+    setIsPopupVisible(true);
+  };
+
   return (
     <div className="todoApp-container">
-      <div>
+      <div className="add-input-btn">
         <input
+          id="todo-input"
           type="text"
           value={todo.text}
           placeholder="enter task todo..."
           onChange={onInputChange}
         />
-        <button onClick={onAddHandler}>+</button>
+        <button onClick={onAddHandler}>Add</button>
       </div>
       <div>
         {todoList.map((el, index) =>
@@ -53,6 +60,14 @@ const TodoApp = () => {
           ) : null
         )}
       </div>
+      {todoList.map((el, index) =>
+        todoList[index].text ? (
+          <div>
+            <button onClick={clearAllHandler}>Clear All</button>
+          </div>
+        ) : null
+      )}
+      {isPopupVisible ? <Popup /> : null}
     </div>
   );
 };
