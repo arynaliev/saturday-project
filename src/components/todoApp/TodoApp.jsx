@@ -37,6 +37,7 @@ const TodoApp = () => {
 
   return (
     <div className="todoApp-container">
+      <h1 style={{ color: "white" }}>Todo App 📋</h1>
       <div className="add-input-btn">
         <input
           id="todo-input"
@@ -47,16 +48,18 @@ const TodoApp = () => {
         />
         <button onClick={onAddHandler}>Add</button>
       </div>
-      <div>
+      <div className="todo-list-box">
         {todoList.map((el, index) =>
           todoList[index].text ? (
-            <TodoItem
-              deleteTodo={onDeleteHandler}
-              isCompleted={el.isCompleted}
-              completeTodo={completeTodo}
-              todoId={el.id}
-              text={el.text}
-            />
+            <div className="todoItem-box">
+              <TodoItem
+                deleteTodo={onDeleteHandler}
+                isCompleted={el.isCompleted}
+                completeTodo={completeTodo}
+                todoId={el.id}
+                text={el.text}
+              />
+            </div>
           ) : null
         )}
       </div>
